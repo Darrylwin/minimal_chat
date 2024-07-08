@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+
 import '../components/my_button.dart';
 import '../components/my_textfield.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
   // email and password controller
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
-  // login method
-  login() {}
+  // register method
+  register() {}
 
-  LoginPage({super.key});
+  RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class LoginPage extends StatelessWidget {
             // welcome back message
 
             Text(
-              "Welcome back. You've been misssed",
+              "Let's create an account",
               style: TextStyle(
                 color: Theme.of(context).colorScheme.primary,
                 fontSize: 16,
@@ -61,14 +63,25 @@ class LoginPage extends StatelessWidget {
             ),
 
             const SizedBox(
+              height: 10,
+            ),
+
+            // confirm password textfield
+            MyTextField(
+              controller: _confirmPasswordController,
+              hintText: "Confirm Password",
+              obscureText: true,
+            ),
+
+            const SizedBox(
               height: 25,
             ),
 
-            //login button
+            //register button
 
             MyButton(
-              text: "Login",
-              onTap: login,
+              text: "Register",
+              onTap: register,
             ),
 
             const SizedBox(
@@ -80,13 +93,13 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Not a member ?",
+                  "Already have an account ?",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 Text(
-                  "Register now",
+                  "Login now",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).colorScheme.primary,
