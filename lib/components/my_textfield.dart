@@ -2,9 +2,15 @@ import 'package:minimal_chat/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final bool obscureText;
   final String hintText;
 
-  const MyTextField({super.key, required this.hintText});
+  const MyTextField(
+      {super.key,
+      required this.hintText,
+      required this.obscureText,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +19,8 @@ class MyTextField extends StatelessWidget {
         horizontal: 25,
       ),
       child: TextField(
+        obscureText: obscureText,
+        controller: controller,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide:
@@ -25,6 +33,7 @@ class MyTextField extends StatelessWidget {
           fillColor: Theme.of(context).colorScheme.secondary,
           filled: true,
           hintText: hintText,
+          hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary),
         ),
       ),
     );
