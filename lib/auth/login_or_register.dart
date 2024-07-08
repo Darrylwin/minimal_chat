@@ -11,11 +11,13 @@ class LoginOrRegister extends StatefulWidget {
 
 class _LoginOrRegisterState extends State<LoginOrRegister> {
   //initially show login page
-  bool showLoginPage = false;
+  bool showLoginPage = true;
 
   // toggle between login and register page
   void togglePages() {
-    showLoginPage = !showLoginPage;
+    setState(() {
+      showLoginPage = !showLoginPage;
+    });
   }
 
   @override
