@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../components/my_button.dart';
@@ -9,10 +10,13 @@ class RegisterPage extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
+  // tap to go to RegisterPage
+  final void Function()? onTap;
+
   // register method
   register() {}
 
-  RegisterPage({super.key});
+  RegisterPage({super.key,required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -98,11 +102,14 @@ class RegisterPage extends StatelessWidget {
                     color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
-                Text(
-                  "Login now",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.primary,
+                GestureDetector(
+                  onTap: onTap,
+                  child: Text(
+                    "Login now",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
                   ),
                 ),
               ],
