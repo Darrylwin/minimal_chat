@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-
+import '../components/my_button.dart';
 import '../components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
   // email and password controller
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  // login method
+  login() {}
 
   LoginPage({super.key});
 
@@ -26,6 +29,7 @@ class LoginPage extends StatelessWidget {
             ),
 
             // welcome back message
+
             Text(
               "Welcome back. You've been misssed",
               style: TextStyle(
@@ -61,6 +65,11 @@ class LoginPage extends StatelessWidget {
             ),
 
             //login button
+
+            MyButton(
+              text: "Login",
+              onTap: login,
+            ),
 
             //register now
           ],

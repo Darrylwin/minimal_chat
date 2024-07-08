@@ -23,6 +23,7 @@ class MyTextField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
             borderSide:
                 BorderSide(color: Theme.of(context).colorScheme.tertiary),
           ),
