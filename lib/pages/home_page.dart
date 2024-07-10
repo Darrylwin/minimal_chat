@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../auth/auth_service.dart';
+import '../components/my_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -24,6 +25,7 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
+      drawer: MyDrawer(),
     );
   }
 }
