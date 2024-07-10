@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:minimal_chat/auth/auth_service.dart';
 
 import '../components/my_button.dart';
 import '../components/my_textfield.dart';
@@ -8,20 +8,51 @@ class RegisterPage extends StatelessWidget {
   // email and password controller
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   // tap to go to RegisterPage
   final void Function()? onTap;
 
   // register method
-  register() {}
+  void register(BuildContext context) {
+    // get auth services
+    final auth = AuthService();
 
-  RegisterPage({super.key,required this.onTap});
+    // password math -> create user
+    if (_passwordController.text == _confirmPasswordController.text) {
+      try {
+        auth.signUpWithEmailPassword(
+          _emailController.text,
+          _passwordController.text,
+        );
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
+        );
+      }
+    }
+
+    // password correspond pas -> message d'erreur
+    else {
+      showDialog(
+        context: context,
+        builder: (context) => const AlertDialog(
+          title: Text("Password don't match!"),
+        ),
+      );
+    }
+  }
+
+  RegisterPage({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -81,11 +112,11 @@ class RegisterPage extends StatelessWidget {
               height: 25,
             ),
 
-            //register button
+            //login button
 
             MyButton(
               text: "Register",
-              onTap: register,
+              onTap: () => register(context),
             ),
 
             const SizedBox(

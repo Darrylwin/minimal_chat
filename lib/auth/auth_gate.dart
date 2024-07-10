@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:minimal_chat/auth/login_or_register.dart';
-import 'package:minimal_chat/pages/login_page.dart';
-import 'package:minimal_chat/pages/register_page.dart';
 
 import '../pages/home_page.dart';
 

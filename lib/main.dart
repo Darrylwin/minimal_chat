@@ -4,7 +4,6 @@ import 'package:minimal_chat/auth/auth_gate.dart';
 import 'package:minimal_chat/firebase_options.dart';
 import 'package:minimal_chat/themes/light_mode.dart';
 
-import 'auth/login_or_register.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
