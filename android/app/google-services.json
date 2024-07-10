@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1001580312107",
+    "project_id": "minimal-3b0fd",
+    "storage_bucket": "minimal-3b0fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001580312107:android:b127374536c5344c129c6e",
+        "android_client_info": {
+          "package_name": "com.example.minimal_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO8peTOD9LtC--2Znwd0S5O-XXRuuxfOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
