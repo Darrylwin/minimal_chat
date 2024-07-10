@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:minimal_chat/auth/auth_service.dart';
-
 import '../components/my_button.dart';
 import '../components/my_textfield.dart';
+import '../services/auth/auth_service.dart';
 
 class RegisterPage extends StatelessWidget {
   // email and password controller

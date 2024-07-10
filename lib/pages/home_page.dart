@@ -1,31 +1,16 @@
 import 'package:flutter/material.dart';
-
-import '../auth/auth_service.dart';
-import '../components/my_drawer.dart';
+import 'package:minimal_chat/components/my_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
-  void logout() {
-    //get auth service
-    final auth = AuthService();
-    auth.signOut();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home"),
-        actions: [
-          // logout button
-          IconButton(
-            onPressed: logout,
-            icon: const Icon(Icons.logout),
-          )
-        ],
       ),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
     );
   }
 }
