@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
   LoginPage({super.key, required this.onTap});
 
   // login method
-  login(BuildContext context) async {
+  void login(BuildContext context) async {
     //auth service
     final authService = AuthService();
 
@@ -25,8 +25,7 @@ class LoginPage extends StatelessWidget {
         _emailController.text,
         _passwordController.text,
       );
-
-    } // catch an errors
+    } // catch any errors
     catch (e) {
       showDialog(
         context: context,
