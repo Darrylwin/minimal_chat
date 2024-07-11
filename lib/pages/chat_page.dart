@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:minimal_chat/components/my_textfield.dart';
 import 'package:minimal_chat/services/auth/auth_service.dart';
 import 'package:minimal_chat/services/chats/chats_services.dart';
@@ -82,8 +83,23 @@ class ChatPage extends StatelessWidget {
   Widget _buildMessageItem(DocumentSnapshot doc) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
-    return Text(
-      data["message"],
+    // is current user
+    bool isCurrentUser = data["senderID"] == _authService.getCurrentUser()!.uid;
+
+    // align message à droite si c'est l'utilisateur lui-même, sinon à gauche
+    var alignment =
+        isCurrentUser ? Alignment.centerRight : Alignment.centerLeft;
+
+    return Container(
+      alignment: alignment,
+      child: Column(
+        crossAxisAlignment: isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        children: [
+          Text(
+            data["message"],
+          ),
+        ],
+      ),
     );
   }
 

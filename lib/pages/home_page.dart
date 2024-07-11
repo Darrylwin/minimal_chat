@@ -70,6 +70,6 @@ Widget _buildUserListItem(Map<String, dynamic> userData, BuildContext context) {
             ),
           ));
     },
-    text: userData['email'],
+    text: userData["email"],
   );
 }
