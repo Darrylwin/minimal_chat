@@ -1,10 +1,7 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
-
 import 'package:flutter/material.dart';
 import 'package:minimal_chat/components/my_drawer.dart';
 import 'package:minimal_chat/services/auth/auth_service.dart';
 import 'package:minimal_chat/services/chats/chats_services.dart';
-
 import '../components/user_tile.dart';
 import 'chat_page.dart';
 
@@ -63,7 +60,7 @@ Widget _buildUserListItem(Map<String, dynamic> userData, BuildContext context) {
   // affiche tous les users exepté l'utilisateur lui-même connecté
   return UserTile(
     onTap: () {
-      // tapped on a user -> allre à la messagerie
+      // tapped on a user -> aller à la messagerie
       Navigator.push(
           context,
           MaterialPageRoute(
