@@ -44,9 +44,10 @@ class ChatPage extends StatelessWidget {
           // display all messages
           Expanded(
             child: _buildMessageList(),
-          )
+          ),
 
           // user input
+          _buildUserInput(),
         ],
       ),
     );
@@ -65,7 +66,7 @@ class ChatPage extends StatelessWidget {
 
         // loading
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Text("Error!");
+          return const Text("Loading...");
         }
 
         // return ListView
@@ -82,7 +83,7 @@ class ChatPage extends StatelessWidget {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
     return Text(
-      data['message'],
+      data["message"],
     );
   }
 
@@ -99,7 +100,10 @@ class ChatPage extends StatelessWidget {
           ),
         ),
 
-        //
+        // send button
+        IconButton(
+            onPressed: sendMessage,
+            icon: const Icon(Icons.subdirectory_arrow_right_sharp))
       ],
     );
   }

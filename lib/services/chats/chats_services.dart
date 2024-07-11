@@ -22,19 +22,22 @@ class ChatsService {
 
 // send messages
   Future<void> sendMessage(String receiverID, message) async {
-    // get current user
+    // get current user info
 
     final String currentUserID = _auth.currentUser!.uid;
     final String currentUserEmail = _auth.currentUser!.email!;
     final Timestamp timestamp = Timestamp.now();
 
-    // create message
+    // create a new message
+// ************************
     Message newMessage = Message(
-        senderID: currentUserID,
-        senderEmail: currentUserEmail,
+        senderID: currentUserEmail,
+        senderEmail: currentUserID,
         receiverID: receiverID,
         message: message,
         timestamp: timestamp);
+
+    // construct chat room id for two users (sorted to ensure uniqueness)
 
     List<String> ids = [currentUserID, receiverID];
     ids.sort(); // sort the ids (this ensure the chatRoomID is the same for any 2 users)
@@ -56,7 +59,7 @@ class ChatsService {
     String chatRoomID = ids.join('_');
 
     return _firestore
-        .collection("chats_rooms")
+        .collection("chat_rooms")
         .doc(chatRoomID)
         .collection("messages")
         .orderBy("timestamp", descending: false)

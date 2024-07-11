@@ -26,7 +26,7 @@ class MyDrawer extends StatelessWidget {
                   child: Icon(
                     Icons.message,
                     color: Theme.of(context).colorScheme.primary,
-                    size: 46,
+                    size: 40,
                   ),
                 ),
               ),
