@@ -36,7 +36,6 @@ class ChatsService {
         message: message,
         timestamp: timestamp);
 
-    // construct chat room ID for two user's chat
     List<String> ids = [currentUserID, receiveID];
     ids.sort(); // sort the ids (this ensure the chatRoomID is the same for any 2 users)
     String chatRoomID = ids.join('_');
@@ -50,4 +49,17 @@ class ChatsService {
   }
 
 // get messages
+  Stream<QuerySnapshot> getMessages(String userID, otherUserID) {
+    // construct chat room ID for two user's chat
+    List<String> ids = [userID, otherUserID];
+    ids.sort();
+    String chatRoomID = ids.join('_');
+
+    return _firestore
+        .collection("chats_rooms")
+        .doc(chatRoomID)
+        .collection("messages")
+        .orderBy("timestamp", descending: false)
+        .snapshots();
+  }
 }
