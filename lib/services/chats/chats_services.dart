@@ -42,6 +42,11 @@ class ChatsService {
     String chatRoomID = ids.join('_');
 
     // add new message to database
+    await _firestore
+        .collection('chat_rooms')
+        .doc(chatRoomID)
+        .collection("messages")
+        .add(newMessage.toMap());
   }
 
 // get messages
