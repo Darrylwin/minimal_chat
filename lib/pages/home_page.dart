@@ -66,6 +66,7 @@ Widget _buildUserListItem(Map<String, dynamic> userData, BuildContext context) {
           MaterialPageRoute(
             builder: (context) => ChatPage(
               receiverEmail: userData["email"],
+              receiverID: userData["uid"],
             ),
           ));
     },

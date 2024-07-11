@@ -21,7 +21,7 @@ class ChatsService {
   }
 
 // send messages
-  Future<void> sendMessage(String receiveID, message) async {
+  Future<void> sendMessage(String receiverID, message) async {
     // get current user
 
     final String currentUserID = _auth.currentUser!.uid;
@@ -32,11 +32,11 @@ class ChatsService {
     Message newMessage = Message(
         senderID: currentUserID,
         senderEmail: currentUserEmail,
-        receiveID: receiveID,
+        receiverID: receiverID,
         message: message,
         timestamp: timestamp);
 
-    List<String> ids = [currentUserID, receiveID];
+    List<String> ids = [currentUserID, receiverID];
     ids.sort(); // sort the ids (this ensure the chatRoomID is the same for any 2 users)
     String chatRoomID = ids.join('_');
 
