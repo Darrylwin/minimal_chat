@@ -7,7 +7,7 @@ import 'package:minimal_chat/models/message.dart';
 import 'package:minimal_chat/services/auth/auth_service.dart';
 import 'package:minimal_chat/services/chats/chats_services.dart';
 
-class ChatPage extends StatelessWidget {
+class ChatPage extends StatefulWidget {
   final String receiverEmail;
   final String receiverID;
 
@@ -17,6 +17,11 @@ class ChatPage extends StatelessWidget {
     required this.receiverID,
   });
 
+  @override
+  State<ChatPage> createState() => _ChatPageState();
+}
+
+class _ChatPageState extends State<ChatPage> {
   // text controller
   final TextEditingController _messageController = TextEditingController();
 
@@ -24,12 +29,51 @@ class ChatPage extends StatelessWidget {
   final ChatsService _chatsService = ChatsService();
   final AuthService _authService = AuthService();
 
+  // for textfield focus
+  FocusNode myFocuseNode = FocusNode();
+  @override
+  void initState() {
+    super.initState();
+
+    // add Listener to focus node
+    myFocuseNode.addListener(() {
+      if (myFocuseNode.hasFocus) {
+        // cause a delay so that the keyboard has time to show up
+        // then the amount of remainig space will be calculated,
+        // then scroll down
+
+        Future.delayed(
+          const Duration(milliseconds: 500),
+          () => scrollDown(),
+        );
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    myFocuseNode.dispose();
+    super.dispose();
+  }
+
+  // scroll controller
+  final ScrollController _scrollController = ScrollController();
+  void scrollDown() {
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+      duration: const Duration(seconds: 1),
+      curve: Curves.fastOutSlowIn,
+    );
+  }
+
   // send messages
   void sendMessage() async {
     // if there is something inside the textfield
     if (_messageController.text.isNotEmpty) {
       // send message
-      await _chatsService.sendMessage(receiverID, _messageController.text);
+      await _chatsService.sendMessage(
+          widget.receiverID, _messageController.text);
 
       // clear text controller
       _messageController.clear();
@@ -42,7 +86,7 @@ class ChatPage extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: Text(
-          receiverEmail,
+          widget.receiverEmail,
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -67,7 +111,7 @@ class ChatPage extends StatelessWidget {
   Widget _buildMessageList() {
     String senderID = _authService.getCurrentUser()!.uid;
     return StreamBuilder(
-      stream: _chatsService.getMessages(receiverID, senderID),
+      stream: _chatsService.getMessages(widget.receiverID, senderID),
       builder: (context, snapshot) {
         // errors
         if (snapshot.hasError) {
@@ -81,6 +125,7 @@ class ChatPage extends StatelessWidget {
 
         // return ListView
         return ListView(
+          controller: _scrollController,
           children:
               snapshot.data!.docs.map((doc) => _buildMessageItem(doc)).toList(),
         );
