@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:minimal_chat/components/chat_bubble.dart';
 import 'package:minimal_chat/components/my_textfield.dart';
-import 'package:minimal_chat/models/message.dart';
 import 'package:minimal_chat/services/auth/auth_service.dart';
 import 'package:minimal_chat/services/chats/chats_services.dart';
 
@@ -11,7 +9,7 @@ class ChatPage extends StatefulWidget {
   final String receiverEmail;
   final String receiverID;
 
-  ChatPage({
+  const ChatPage({
     super.key,
     required this.receiverEmail,
     required this.receiverID,
@@ -48,12 +46,18 @@ class _ChatPageState extends State<ChatPage> {
         );
       }
     });
+
+    // wait a little bit for ListView to be built. then scroll to the bottom
+    Future.delayed(
+      const Duration(milliseconds: 500),
+      () => scrollDown(),
+    );
   }
 
   @override
   void dispose() {
-    super.dispose();
     myFocuseNode.dispose();
+    _messageController.dispose();
     super.dispose();
   }
 
@@ -78,12 +82,14 @@ class _ChatPageState extends State<ChatPage> {
       // clear text controller
       _messageController.clear();
     }
+
+    // scrollDown();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         title: Text(
           widget.receiverEmail,
@@ -171,7 +177,7 @@ class _ChatPageState extends State<ChatPage> {
               controller: _messageController,
               hintText: 'Type a message',
               obscureText: false,
-              focusNode: myFocuseNode,
+              // focusNode: myFocuseNode,
             ),
           ),
 
