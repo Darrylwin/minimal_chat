@@ -93,7 +93,8 @@ class ChatPage extends StatelessWidget {
     return Container(
       alignment: alignment,
       child: Column(
-        crossAxisAlignment: isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        crossAxisAlignment:
+            isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
           Text(
             data["message"],
@@ -105,22 +106,34 @@ class ChatPage extends StatelessWidget {
 
   // build message input
   Widget _buildUserInput() {
-    return Row(
-      children: [
-        // textfield should take up most of the space
-        Expanded(
-          child: MyTextField(
-            controller: _messageController,
-            hintText: 'Type a message',
-            obscureText: false,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 50),
+      child: Row(
+        children: [
+          // textfield should take up most of the space
+          Expanded(
+            child: MyTextField(
+              controller: _messageController,
+              hintText: 'Type a message',
+              obscureText: false,
+            ),
           ),
-        ),
 
-        // send button
-        IconButton(
-            onPressed: sendMessage,
-            icon: const Icon(Icons.subdirectory_arrow_right_sharp))
-      ],
+          // send button
+          Container(
+            decoration: const BoxDecoration(
+              color: Colors.green,
+              shape: BoxShape.circle,
+            ),
+            margin: const EdgeInsets.only(right: 25),
+            child: IconButton(
+              onPressed: sendMessage,
+              icon: const Icon(Icons.subdirectory_arrow_right_sharp),
+              color: Colors.white,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
