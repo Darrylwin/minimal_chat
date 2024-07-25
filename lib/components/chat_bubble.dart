@@ -93,36 +93,36 @@ class ChatBubble extends StatelessWidget {
   }
 
   // block user
-  // void _blockUser(BuildContext context, String userID) {
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) => AlertDialog(
-  //       title: const Text('Block User'),
-  //       content: const Text("Are you sure you want to block this user ?"),
-  //       actions: [
-  //         // cancel button
-  //         TextButton(
-  //           onPressed: () => Navigator.pop(context),
-  //           child: const Text("Cancel"),
-  //         ),
+  void _blockUser(BuildContext context, String userID) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Block User'),
+        content: const Text("Are you sure you want to block this user ?"),
+        actions: [
+          // cancel button
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Cancel"),
+          ),
 
-  //         // block button
-  //         TextButton(
-  //           onPressed: () {
-  //             ChatsService().blockUser(userID);
-  //             Navigator.pop(context);
-  //             ScaffoldMessenger.of(context).showSnackBar(
-  //               const SnackBar(
-  //                 content: Text("User Blocked"),
-  //               ),
-  //             );
-  //           },
-  //           child: const Text("Block"),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+          // block button
+          TextButton(
+            onPressed: () {
+              ChatsService().blockUser(userID);
+              Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("User Blocked"),
+                ),
+              );
+            },
+            child: const Text("Block"),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
