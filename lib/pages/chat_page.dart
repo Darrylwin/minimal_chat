@@ -83,7 +83,7 @@ class _ChatPageState extends State<ChatPage> {
       _messageController.clear();
     }
 
-    // scrollDown();
+    scrollDown();
   }
 
   @override
@@ -184,7 +184,7 @@ class _ChatPageState extends State<ChatPage> {
           // send button
           Container(
             decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 35, 117, 38),
+              color: Color.fromARGB(255, 51, 152, 55),
               shape: BoxShape.circle,
             ),
             margin: const EdgeInsets.only(right: 25),
