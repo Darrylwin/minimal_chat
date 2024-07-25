@@ -90,10 +90,19 @@ class ChatsService extends ChangeNotifier {
         .doc(userID)
         .set({});
 
-        notifyListeners();
+    notifyListeners();
   }
 
-  // unlock user
+  // unblock user
+  Future<void> unblockUser(String blockedUserID) async {
+    final currentUser = _auth.currentUser;
+    await _firestore
+        .collection('Users')
+        .doc(currentUser!.uid)
+        .collection('BlockedUsers')
+        .doc(blockedUserID)
+        .delete();
+  }
 
   //get blocked users stream
 }
