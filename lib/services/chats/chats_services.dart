@@ -1,13 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:minimal_chat/models/message.dart';
 
-class ChatsService {
+class ChatsService extends ChangeNotifier {
   // get instance of firestore and auth
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-// get user stream
+  // get all users stream
   Stream<List<Map<String, dynamic>>> getUsersStream() {
     return _firestore.collection("Users").snapshots().map((snapshot) {
       return snapshot.docs.map((doc) {
@@ -20,7 +21,8 @@ class ChatsService {
     });
   }
 
-// send messages
+  // get all users stream except blocked users
+  // send messages
   Future<void> sendMessage(String receiverID, message) async {
     // get current user info
 
@@ -51,7 +53,7 @@ class ChatsService {
         .add(newMessage.toMap());
   }
 
-// get messages
+  // get messages
   Stream<QuerySnapshot> getMessages(String userID, otherUserID) {
     // construct chat room ID for two user's chat
     List<String> ids = [userID, otherUserID];
@@ -65,4 +67,22 @@ class ChatsService {
         .orderBy("timestamp", descending: false)
         .snapshots();
   }
+
+  // report user
+  Future<void> reportUser(String messageID, String userID) async {
+    final currentUser = _auth.currentUser;
+    final report = {
+      'reportedBy': currentUser!.uid,
+      'messageID': messageID,
+      'messageOwnerID': userID,
+      'timeStamp': FieldValue.serverTimestamp(),
+    };
+    await _firestore.collection('Repports').add(report);
+  }
+
+  // block user
+
+  // unlock user
+
+  //get blocked users stream
 }
