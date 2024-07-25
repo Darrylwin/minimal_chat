@@ -61,36 +61,36 @@ class ChatBubble extends StatelessWidget {
   }
 
   // report message
-  // _reportMessage(BuildContext context, String messageID, String userID) {
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) => AlertDialog(
-  //       title: const Text('Report Message'),
-  //       content: const Text("Are you sure you want to report this message ?"),
-  //       actions: [
-  //         // cancel button
-  //         TextButton(
-  //           onPressed: () => Navigator.pop(context),
-  //           child: const Text("Cancel"),
-  //         ),
+  _reportMessage(BuildContext context, String messageID, String userID) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Report Message'),
+        content: const Text("Are you sure you want to report this message ?"),
+        actions: [
+          // cancel button
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Cancel"),
+          ),
 
-  //         // report button
-  //         TextButton(
-  //           onPressed: () {
-  //             ChatsService().reportUser(messageID, userID);
-  //             Navigator.pop(context);
-  //             ScaffoldMessenger.of(context).showSnackBar(
-  //               const SnackBar(
-  //                 content: Text("Message Reported"),
-  //               ),
-  //             );
-  //           },
-  //           child: const Text("Report"),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+          // report button
+          TextButton(
+            onPressed: () {
+              ChatsService().reportUser(messageID, userID);
+              Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("Message Reported"),
+                ),
+              );
+            },
+            child: const Text("Report"),
+          ),
+        ],
+      ),
+    );
+  }
 
   // block user
   // void _blockUser(BuildContext context, String userID) {
