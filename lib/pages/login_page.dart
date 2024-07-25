@@ -11,7 +11,10 @@ class LoginPage extends StatelessWidget {
   // tap to go to RegisterPage
   final void Function()? onTap;
 
-  LoginPage({super.key, required this.onTap});
+  LoginPage({
+    super.key,
+    required this.onTap,
+  });
 
   // login method
   void login(BuildContext context) async {
@@ -44,11 +47,14 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            Icon(Icons.message,
-                size: 60, color: Theme.of(context).colorScheme.primary),
+            Icon(
+              Icons.message,
+              size: 60,
+              color: Theme.of(context).colorScheme.primary,
+            ),
 
             const SizedBox(
-              height: 25,
+              height: 50,
             ),
 
             // welcome back message
@@ -111,7 +117,7 @@ class LoginPage extends StatelessWidget {
                 GestureDetector(
                   onTap: onTap,
                   child: Text(
-                    "Register now",
+                    "  Register now",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).colorScheme.primary,

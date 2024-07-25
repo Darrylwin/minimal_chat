@@ -14,8 +14,8 @@ class HomePage extends StatelessWidget {
 
   void logout() {
     // get auth service
-    final auth = AuthService();
-    auth.signOut();
+    final _auth = AuthService();
+    _auth.signOut();
   }
 
   @override
@@ -62,8 +62,11 @@ class HomePage extends StatelessWidget {
   }
 }
 
-// build individual list tile fir user
-Widget _buildUserListItem(Map<String, dynamic> userData, BuildContext context) {
+// build individual list tile for user
+Widget _buildUserListItem(
+  Map<String, dynamic> userData,
+  BuildContext context,
+) {
   // affiche tous les users exepté l'utilisateur lui-même connecté
   return UserTile(
     onTap: () {

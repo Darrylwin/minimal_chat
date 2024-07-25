@@ -31,11 +31,12 @@ class ChatsService {
     // create a new message
 // ************************
     Message newMessage = Message(
-        senderID: currentUserID,
-        senderEmail: currentUserEmail,
-        receiverID: receiverID,
-        message: message,
-        timestamp: timestamp);
+      senderID: currentUserID,
+      senderEmail: currentUserEmail,
+      receiverID: receiverID,
+      message: message,
+      timestamp: timestamp,
+    );
 
     // construct chat room id for two users (sorted to ensure uniqueness)
 

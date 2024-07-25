@@ -18,7 +18,7 @@ class RegisterPage extends StatelessWidget {
     // get auth services
     final auth = AuthService();
 
-    // password math -> create user
+    // passwords math -> create user
     if (_passwordController.text == _confirmPasswordController.text) {
       try {
         auth.signUpWithEmailPassword(
@@ -57,11 +57,14 @@ class RegisterPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            Icon(Icons.message,
-                size: 60, color: Theme.of(context).colorScheme.primary),
+            Icon(
+              Icons.message,
+              size: 60,
+              color: Theme.of(context).colorScheme.primary,
+            ),
 
             const SizedBox(
-              height: 25,
+              height: 50,
             ),
 
             // welcome back message
@@ -135,7 +138,7 @@ class RegisterPage extends StatelessWidget {
                 GestureDetector(
                   onTap: onTap,
                   child: Text(
-                    "Login now",
+                    "  Login now",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).colorScheme.primary,

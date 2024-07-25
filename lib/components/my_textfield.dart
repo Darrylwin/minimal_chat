@@ -30,7 +30,7 @@ class MyTextField extends StatelessWidget {
             borderSide:
                 BorderSide(color: Theme.of(context).colorScheme.tertiary),
           ),
-          focusedErrorBorder: OutlineInputBorder(
+          focusedBorder: OutlineInputBorder(
             borderSide:
                 BorderSide(color: Theme.of(context).colorScheme.primary),
           ),
