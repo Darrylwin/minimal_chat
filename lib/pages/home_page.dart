@@ -14,8 +14,8 @@ class HomePage extends StatelessWidget {
 
   void logout() {
     // get auth service
-    final _auth = AuthService();
-    _auth.signOut();
+    final auth = AuthService();
+    auth.signOut();
   }
 
   @override
@@ -60,26 +60,29 @@ class HomePage extends StatelessWidget {
       },
     );
   }
-}
 
-// build individual list tile for user
-Widget _buildUserListItem(
-  Map<String, dynamic> userData,
-  BuildContext context,
-) {
-  // affiche tous les users exepté l'utilisateur lui-même connecté
-  return UserTile(
-    onTap: () {
-      // tapped on a user -> aller à la messagerie
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ChatPage(
-              receiverEmail: userData["email"],
-              receiverID: userData["uid"],
+  // build individual list tile for user
+  Widget _buildUserListItem(
+      Map<String, dynamic> userData, BuildContext context) {
+    // affiche tous les users exepté l'utilisateur lui-même connecté
+    if (userData["email"] != _authService.getCurrentUser()!.email) {
+      return UserTile(
+        text: userData["email"],
+        onTap: () {
+          // tapped on a user -> aller à la messagerie
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ChatPage(
+                receiverEmail: userData["email"],
+                receiverID: userData["uid"],
+              ),
             ),
-          ));
-    },
-    text: userData["email"],
-  );
+          );
+        },
+      );
+    } else {
+      return Container();
+    }
+  }
 }
