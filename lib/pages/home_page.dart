@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         title: const Text(
-          "Home",
+          "U S E R S",
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
 // construire une liste de user exepté l'utilisateur lui-même connecté
   Widget _buildUserList() {
     return StreamBuilder(
-      stream: _chatsService.getUsersStream(),
+      stream: _chatsService.getUsersStreamExcludingBlocked(),
       builder: (context, snapshot) {
         // message d'erreur
         if (snapshot.hasError) {
