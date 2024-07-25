@@ -22,7 +22,7 @@ class ChatBubble extends StatelessWidget {
       decoration: BoxDecoration(
         color: isCurrentUser
             ? (isDarkMode ? Colors.green.shade900 : Colors.green)
-            : (isDarkMode ? Colors.grey.shade900 : Colors.grey.shade300),
+            : (isDarkMode ? Colors.grey.shade800 : Colors.grey.shade200),
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.all(16),

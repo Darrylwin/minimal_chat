@@ -177,14 +177,14 @@ class _ChatPageState extends State<ChatPage> {
               controller: _messageController,
               hintText: 'Type a message',
               obscureText: false,
-              // focusNode: myFocuseNode,
+              focusNode: myFocuseNode,
             ),
           ),
 
           // send button
           Container(
             decoration: const BoxDecoration(
-              color: Colors.green,
+              color: Color.fromARGB(255, 35, 117, 38),
               shape: BoxShape.circle,
             ),
             margin: const EdgeInsets.only(right: 25),
