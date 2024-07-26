@@ -1,9 +1,13 @@
+import 'package:MinamalChatApp/components/chat_bubble.dart';
+import 'package:MinamalChatApp/components/my_textfield.dart';
+import 'package:MinamalChatApp/services/auth/auth_service.dart';
+import 'package:MinamalChatApp/services/chats/chats_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:minimal_chat/components/chat_bubble.dart';
-import 'package:minimal_chat/components/my_textfield.dart';
-import 'package:minimal_chat/services/auth/auth_service.dart';
-import 'package:minimal_chat/services/chats/chats_services.dart';
+// import 'package:minimal_chat/components/chat_bubble.dart';
+// import 'package:minimal_chat/components/my_textfield.dart';
+// import 'package:minimal_chat/services/auth/auth_service.dart';
+// import 'package:minimal_chat/services/chats/chats_services.dart';
 
 class ChatPage extends StatefulWidget {
   final String receiverEmail;

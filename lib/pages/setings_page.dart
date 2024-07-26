@@ -1,7 +1,9 @@
+import 'package:MinamalChatApp/pages/blocked_users_page.dart';
+import 'package:MinamalChatApp/themes/theme_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minimal_chat/pages/blocked_users_page.dart';
-import 'package:minimal_chat/themes/theme_provider.dart';
+// import 'package:minimal_chat/pages/blocked_users_page.dart';
+// import 'package:minimal_chat/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -17,7 +19,7 @@ class SettingsPage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           foregroundColor: Colors.grey,
           elevation: 0,
-          actions: [],
+          actions: const [],
         ),
         body:
             // Container(

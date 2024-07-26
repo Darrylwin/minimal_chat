@@ -1,7 +1,10 @@
+import 'package:MinamalChatApp/components/user_tile.dart';
+import 'package:MinamalChatApp/services/auth/auth_service.dart';
+import 'package:MinamalChatApp/services/chats/chats_services.dart';
 import 'package:flutter/material.dart';
-import 'package:minimal_chat/components/user_tile.dart';
-import 'package:minimal_chat/services/auth/auth_service.dart';
-import 'package:minimal_chat/services/chats/chats_services.dart';
+// import 'package:minimal_chat/components/user_tile.dart';
+// import 'package:minimal_chat/services/auth/auth_service.dart';
+// import 'package:minimal_chat/services/chats/chats_services.dart';
 
 class BlockedUsersPage extends StatelessWidget {
   BlockedUsersPage({super.key});
@@ -46,7 +49,7 @@ class BlockedUsersPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Blocked Users"),
-        actions: [],
+        actions: const [],
       ),
       body: StreamBuilder<List<Map<String, dynamic>>>(
         stream: chatsService.getBlockedUsersStream(userID),
@@ -69,7 +72,7 @@ class BlockedUsersPage extends StatelessWidget {
 
           // no user blocked
           if (blockedUsers.isEmpty) {
-            return Center(
+            return const Center(
               child: Text("No Blocked User"),
             );
           }

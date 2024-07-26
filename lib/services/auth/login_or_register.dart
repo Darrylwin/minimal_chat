@@ -1,6 +1,8 @@
+import 'package:MinamalChatApp/pages/login_page.dart';
+import 'package:MinamalChatApp/pages/register_page.dart';
 import 'package:flutter/material.dart';
-import 'package:minimal_chat/pages/login_page.dart';
-import 'package:minimal_chat/pages/register_page.dart';
+// import 'package:minimal_chat/pages/login_page.dart';
+// import 'package:minimal_chat/pages/register_page.dart';
 
 class LoginOrRegister extends StatefulWidget {
   const LoginOrRegister({super.key});

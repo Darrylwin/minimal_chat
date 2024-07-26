@@ -1,6 +1,8 @@
+import 'package:MinamalChatApp/themes/dark_mode.dart';
+import 'package:MinamalChatApp/themes/light_mode.dart';
 import 'package:flutter/material.dart';
-import 'package:minimal_chat/themes/dark_mode.dart';
-import 'package:minimal_chat/themes/light_mode.dart';
+// import 'package:minimal_chat/themes/dark_mode.dart';
+// import 'package:minimal_chat/themes/light_mode.dart';
 
 class ThemeProvider extends ChangeNotifier {
   ThemeData _themeData = lightMode;

@@ -1,8 +1,11 @@
+import 'package:MinamalChatApp/firebase_options.dart';
+import 'package:MinamalChatApp/services/auth/auth_gate.dart';
+import 'package:MinamalChatApp/themes/theme_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:minimal_chat/firebase_options.dart';
-import 'package:minimal_chat/services/auth/auth_gate.dart';
-import 'package:minimal_chat/themes/theme_provider.dart';
+// import 'package:minimal_chat/firebase_options.dart';
+// import 'package:minimal_chat/services/auth/auth_gate.dart';
+// import 'package:minimal_chat/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

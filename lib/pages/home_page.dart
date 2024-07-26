@@ -1,8 +1,12 @@
+import 'package:MinamalChatApp/components/my_drawer.dart';
+import 'package:MinamalChatApp/components/user_tile.dart';
+import 'package:MinamalChatApp/services/auth/auth_service.dart';
+import 'package:MinamalChatApp/services/chats/chats_services.dart';
 import 'package:flutter/material.dart';
-import 'package:minimal_chat/components/my_drawer.dart';
-import 'package:minimal_chat/services/auth/auth_service.dart';
-import 'package:minimal_chat/services/chats/chats_services.dart';
-import '../components/user_tile.dart';
+// import 'package:minimal_chat/components/my_drawer.dart';
+// import 'package:minimal_chat/services/auth/auth_service.dart';
+// import 'package:minimal_chat/services/chats/chats_services.dart';
+// import '../components/user_tile.dart';
 import 'chat_page.dart';
 
 class HomePage extends StatelessWidget {

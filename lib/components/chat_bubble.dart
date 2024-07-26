@@ -1,6 +1,8 @@
+import 'package:MinamalChatApp/services/chats/chats_services.dart';
+import 'package:MinamalChatApp/themes/theme_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:minimal_chat/services/chats/chats_services.dart';
-import 'package:minimal_chat/themes/theme_provider.dart';
+// import 'package:minimal_chat/services/chats/chats_services.dart';
+// import 'package:minimal_chat/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class ChatBubble extends StatelessWidget {
