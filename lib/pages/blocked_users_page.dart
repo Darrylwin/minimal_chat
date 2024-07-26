@@ -31,7 +31,7 @@ class BlockedUsersPage extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("User Unblocked")));
             },
-            child: const Text("Cancel"),
+            child: const Text("Block"),
           ),
         ],
       ),
