@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:minimal_chat/pages/blocked_users_page.dart';
 import 'package:minimal_chat/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -119,7 +120,10 @@ class SettingsPage extends StatelessWidget {
                             builder: (context) => BlockedUsersPage(),
                           ),
                         ),
-                        icon: Icon(Icons.arrow_forward_rounded),
+                        icon: Icon(
+                          Icons.arrow_forward_rounded,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
                       ),
                     ],
                   ),
