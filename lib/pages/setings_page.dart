@@ -56,10 +56,11 @@ class SettingsPage extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 600),
             child: Column(
               children: [
+                // dark mode
                 Container(
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.secondary,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   margin: const EdgeInsets.only(left: 25, top: 10, right: 25),
                   padding: const EdgeInsets.only(
@@ -84,6 +85,41 @@ class SettingsPage extends StatelessWidget {
                         onChanged: (value) =>
                             Provider.of<ThemeProvider>(context, listen: false)
                               ..toggleTheme(),
+                      ),
+                    ],
+                  ),
+                ),
+
+                //blocked users
+                Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.secondary,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  margin: const EdgeInsets.only(left: 25, top: 10, right: 25),
+                  padding: const EdgeInsets.only(
+                      left: 25, right: 25, top: 20, bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // title
+                      Text(
+                        '  Blocked Users',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color:
+                                Theme.of(context).colorScheme.inversePrimary),
+                      ),
+
+                      // button to go to blocked users page
+                      IconButton(
+                        onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BlockedUsersPage(),
+                          ),
+                        ),
+                        icon: Icon(Icons.arrow_forward_rounded),
                       ),
                     ],
                   ),
