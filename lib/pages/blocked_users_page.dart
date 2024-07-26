@@ -43,7 +43,7 @@ class BlockedUsersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // get curent user ID
+    // get curent users ID
     String userID = authService.getCurrentUser()!.uid;
     // UI
     return Scaffold(
@@ -70,7 +70,7 @@ class BlockedUsersPage extends StatelessWidget {
 
           final blockedUsers = snapshot.data ?? [];
 
-          // no user blocked
+          // no users
           if (blockedUsers.isEmpty) {
             return const Center(
               child: Text("No Blocked User"),
@@ -79,6 +79,7 @@ class BlockedUsersPage extends StatelessWidget {
 
           // load completed
           return ListView.builder(
+            itemCount: blockedUsers.length,
             itemBuilder: (context, index) {
               final user = blockedUsers[index];
               return UserTile(
