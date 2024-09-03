@@ -36,7 +36,7 @@ class MyDrawer extends StatelessWidget {
                 child: Icon(
                   Icons.message,
                   size: 40,
-                  color: Theme.of(context).colorScheme.inversePrimary,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ),
 
