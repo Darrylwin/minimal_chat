@@ -47,30 +47,31 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBqB67A-yQ1jOz8M63pilPWffdeU0OqBUw',
-    appId: '1:1001580312107:web:9fbfbefc30b4d4f1129c6e',
-    messagingSenderId: '1001580312107',
-    projectId: 'minimal-3b0fd',
-    authDomain: 'minimal-3b0fd.firebaseapp.com',
-    storageBucket: 'minimal-3b0fd.appspot.com',
-    measurementId: 'G-2BCTS2L2TG',
+    apiKey: 'AIzaSyDC3ruvISk6dYyYR_eZ7gWQf-1-BMH404Q',
+    appId: '1:342539799944:web:bf16363e49c22b3557fe3d',
+    messagingSenderId: '342539799944',
+    projectId: 'minimalchat2',
+    authDomain: 'minimalchat2.firebaseapp.com',
+    storageBucket: 'minimalchat2.appspot.com',
+    measurementId: 'G-5VEGCKHSRW',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCO8peTOD9LtC--2Znwd0S5O-XXRuuxfOU',
-    appId: '1:1001580312107:android:b127374536c5344c129c6e',
-    messagingSenderId: '1001580312107',
-    projectId: 'minimal-3b0fd',
-    storageBucket: 'minimal-3b0fd.appspot.com',
+    apiKey: 'AIzaSyAE5tPeCdjx6al00TzWhmU7151vvoL1-9k',
+    appId: '1:342539799944:android:778d20767f55e4ff57fe3d',
+    messagingSenderId: '342539799944',
+    projectId: 'minimalchat2',
+    storageBucket: 'minimalchat2.appspot.com',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBqB67A-yQ1jOz8M63pilPWffdeU0OqBUw',
-    appId: '1:1001580312107:web:683dfcefe57ae672129c6e',
-    messagingSenderId: '1001580312107',
-    projectId: 'minimal-3b0fd',
-    authDomain: 'minimal-3b0fd.firebaseapp.com',
-    storageBucket: 'minimal-3b0fd.appspot.com',
-    measurementId: 'G-R4H7SR53S6',
+    apiKey: 'AIzaSyDC3ruvISk6dYyYR_eZ7gWQf-1-BMH404Q',
+    appId: '1:342539799944:web:9f6d6a1928f04b4157fe3d',
+    messagingSenderId: '342539799944',
+    projectId: 'minimalchat2',
+    authDomain: 'minimalchat2.firebaseapp.com',
+    storageBucket: 'minimalchat2.appspot.com',
+    measurementId: 'G-21CXEYEZ05',
   );
+
 }
