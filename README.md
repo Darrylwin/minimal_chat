@@ -19,19 +19,31 @@
 ## Getting Started
 
 1. Clone the repository: <br/>
-   `git clone https://github.com/Darrylwin/minimal_chat.git`
-1. Install dependencies: <br/>
-   `flutter pub get`
-1. Run the application: `flutter run`
+```
+git clone https://github.com/Darrylwin/minimal_chat.git
+```
+2. Move to directory
+```
+cd minimal_chat
+```
+3. Install dependencies: <br/>
+```
+flutter pub get
+```
+4. Run the application: 
+```
+flutter run
+```
 
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to the project, please fork the repository, make your changes, and submit a pull request.
 
-## Aknowledgements
+## Acknowledgements
 
 Flutter and Firebase teams for their amazing frameworks and tools.
 
-## Disclaimer
+[//]: # (## Disclaimer)
 
-Don't worry, I'll be publishing a release of this application soon 🤲🤝.
+[//]: # ()
+[//]: # (Don't worry, I'll be publishing a release of this application soon 🤲🤝.)
