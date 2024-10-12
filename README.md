@@ -43,7 +43,7 @@ Contributions are welcome! If you'd like to contribute to the project, please fo
 
 Flutter and Firebase teams for their amazing frameworks and tools.
 
-[//]: # (## Disclaimer)
+## Disclaimer
 
-[//]: # ()
-[//]: # (Don't worry, I'll be publishing a release of this application soon 🤲🤝.)
+Windows version have some issues to fix.
+But don't worry, I'll be publishing a release of this application for windows version soon 🤲🤝.
