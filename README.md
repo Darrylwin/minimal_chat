@@ -45,4 +45,4 @@ Flutter and Firebase teams for their amazing frameworks and tools.
 
 ## Disclaimer
 
-Windows version have some issues to fix.
+Desktop versions have some issues to fix.
